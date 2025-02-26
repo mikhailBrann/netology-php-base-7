@@ -1,6 +1,8 @@
 <?php
-$errorFileName = $_GET["error"] == 'file-name' ? '<div class="error">Заполните поле с названием файла</div>' : '';
-$errorFile = $_GET["error_two"] == 'file' ? '<div class="error">Загрузите файл</div>' : '';
+$errorFileName = (!empty($_GET["error"]) && $_GET["error"] == 'file-name') ? 
+    '<div class="error">Заполните поле с названием файла</div>' : '';
+$errorFile = (!empty($_GET["error_two"]) && $_GET["error_two"] == 'file') ? 
+    '<div class="error">Загрузите файл</div>' : '';
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ $errorFile = $_GET["error_two"] == 'file' ? '<div class="error">Загрузит
     <title>File form</title>
 </head>
 <body> 
-    <form action="/form/upload.php" method="post" enctype="multipart/form-data">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
         <div>
             <?=$errorFileName?>
             <input name="file_name" type="text" value="" placeholder="введите имя файла">

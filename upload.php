@@ -1,5 +1,5 @@
 <?php
-$uploadDir = __DIR__ . DIRECTORY_SEPARATOR . 'upload' . DIRECTORY_SEPARATOR;
+$uploadDir = './upload/';
 $hasError = false;
 $errorKeys = [];
 
@@ -15,7 +15,7 @@ if(isset($_FILES["upload_file"]["size"]) && $_FILES["upload_file"]["size"] <= 0)
 
 if($hasError) {
     $errorKeys = "?" . implode("&", $errorKeys);
-    header('Location: /form/index.php' . $errorKeys , true, 302);
+    header('Location: index.php' . $errorKeys , true, 302);
     exit;
 }
 
